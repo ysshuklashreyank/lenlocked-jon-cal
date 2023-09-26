@@ -10,6 +10,7 @@ import (
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprint(w, "<h1> Hare Krishna haribol</h1> ")
+	// chi.get
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,11 +40,19 @@ func faqHandler(w http.ResponseWriter, r *http.Request) {
 	`)
 }
 
+func galleriesHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, "<h1> Hare Krishna haribol</h1> ")
+	id := chi.URLParam(r, "id")
+	fmt.Fprint(w, id)
+}
+
 func main() {
 	r := chi.NewRouter()
 	r.Get("/", homeHandler)
 	r.Get("/contact", contactHandler)
 	r.Get("/faq", faqHandler)
+	r.Get("/galleries/{id}", galleriesHandler)
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Not found", http.StatusNotFound)
 	})
