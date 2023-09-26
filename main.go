@@ -8,8 +8,9 @@ import (
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
+	// bio := `<script>alert("Yo");</script>`
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, "<h1> Hare Krishna haribol</h1> ")
+	fmt.Fprint(w, "<h1> Hare Krishna haribol</h1><p>Bio:"+"</p>")
 	// chi.get
 }
 
