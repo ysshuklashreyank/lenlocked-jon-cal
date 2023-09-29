@@ -8,9 +8,9 @@ import (
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	// bio := `<script>alert("Yo");</script>`
+	bio := `<script>alert("Yo");</script>`
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, "<h1> Hare Krishna haribol</h1><p>Bio:"+"</p>")
+	fmt.Fprint(w, "<h1> Hare Krishna haribol</h1><p>Bio:"+bio+"</p>")
 	// chi.get
 }
 
@@ -58,5 +58,5 @@ func main() {
 		http.Error(w, "Not found", http.StatusNotFound)
 	})
 	fmt.Println("Starting the server on :3000...")
-	http.ListenAndServe(":3000", r)
+	http.ListenAndServe(":3001", r)
 }
