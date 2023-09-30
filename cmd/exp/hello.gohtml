@@ -2,11 +2,20 @@
 Age: {{.Age}}
 <p>Bio: {{.Bio}}</p>
 
+{{.DOB}}
+{{.Langs}}
+
+{{range .Langs}} <p> abc </p> {{end}}
+
 <script>
-const user = {
-    "name": {{.Name}},
-    "bio": {{.Bio}},
-    "meta": {{.Meta}}
-};
-console.log(user);
+  const user = {
+      "name": {{.Name}},
+      "bio": {{.Bio}},
+      "meta": {{.Meta}},
+      "contact": {{.Contact}},
+      "dob": {{.DOB}}
+      "langs": {{.Langs}}
+
+  };
+  console.log(user);
 </script>
