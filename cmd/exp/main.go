@@ -6,18 +6,25 @@ import (
 )
 
 func main() {
-	err := CreateUser()
-	fmt.Println(err)
+	err := B()
+	// TODO: Determine if the `err` variable is an `ErrNotFound`
+	if errors.Is(err, ErrNotFound) {
+		fmt.Println("It was ErrNotFound")
+	} else {
+		fmt.Println("Not it was not.")
+	}
 }
 
-func Connect() error {
-	return errors.New("connection failed")
+var ErrNotFound = errors.New("not found")
+
+func A() error {
+	return ErrNotFound
 }
 
-func CreateUser() error {
-	err := Connect()
+func B() error {
+	err := A()
 	if err != nil {
-		return fmt.Errorf("create user: %w", err)
+		return fmt.Errorf("b: %w", err)
 	}
 	return nil
 }
