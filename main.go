@@ -26,7 +26,8 @@ func main() {
 		views.Must(views.ParseFS(templates.FS, "contact.gohtml", "tailwind.gohtml"))))
 	r.Get("/faq", controllers.FAQ(
 		views.Must(views.ParseFS(templates.FS, "faq.gohtml", "tailwind.gohtml"))))
-
+	r.Get("/signup", controllers.StaticHandler(
+		views.Must(views.ParseFS(templates.FS, "signup.gohtml", "tailwind.gohtml"))))
 	r.Get("/galleries/{id}", galleriesHandler)
 
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
